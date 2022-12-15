@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello Audio</title>
+  <script src="aframe-v0.7.1.js"></script>
+  <script src="aframe-animation-component.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/aframe-gltf-part-component/dist/aframe-gltf-part-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+
+</head>
+<body>
+<a-scene>
+  <a-assets>
+
+
+    <img id="groundtex" src="groundtex.png">
+    <img id="buildtex" src="buildtex.jpg">
+    <img id="buildtex1" src="buildtex1.jpg">
+    <img id="buildtex2" src="buildtex2.jpg">
+    <img id="buildtex3" src="buildtex3.jpg">
+    <img id="buildtex4" src="buildtex4.jpg">
+    <img id="buildtex5" src="buildtex5.jpg">
+    <img id="buildtex6" src="buildtex6.jpg">
+
+
+    <img id="li" src="li.jpg">
+    <img id="flower1" src="models/flower1.jpg">
+    <img id="trash1" src="models/trash1.jpg">
+    <img id="trash2" src="models/trash2.jpg">
+    <img id="trash3" src="models/trash3.jpg">
+    <img id="trash4" src="models/trash4.jpg">
+    <img id="trash5" src="models/trash5.jpg">
+    <img id="trash6" src="models/trash6.jpg">
+    <img id="trash7" src="models/trash7.jpg">
+    <img id="trash8" src="models/trash8.jpg">
+    <img id="trash9" src="models/trash9.jpg">
+    <img id="trash10" src="models/trash10.jpg">
+    <img id="trash11" src="models/trash11.jpg">
+    <img id="trash12" src="models/trash12.jpg">
+    <img id="trash13" src="models/trash13.jpg">
+    <img id="trash14" src="models/trash14.jpg">
+    <img id="trash15" src="models/trash15.jpg">
+    <img id="trash16" src="models/trash16.jpg">
+    <img id="tree1" src="models/tree1.jpg">
+    <img id="tree2" src="models/tree2.jpg">
+    <img id="tree3" src="models/tree3.jpg">
+    <img id="tree4" src="models/tree4.jpg">
+
+    <img id="xx" src="xx.jpg">
+    <audio id="spooky" src="spooky.mp3"></audio>
+    <audio id="walk" src="walk.mp3"></audio>
+    <audio id="leaf2" src="leaf2.mp3"></audio>
+    <audio id="bbb" src="bbb.mp3"></audio>
+    <audio id="yy" src="yy.mp3"></audio>
+    <audio id="grass" src="grass.mp3"></audio>
+    <audio id="grass2" src="grass2.mp3"></audio>
+    <audio id="train" src="train.mp3"></audio>
+    <audio id="water" src="water.mp3"></audio>
+    <audio id="yy" src="yy.mp3"></audio>
+
+
+    <img id="moonTexture" src="assets/moon_baseColor.jpeg" />
+    <img id="bu" src="assets/bu.jpg" />
+    <img id="bu2" src="assets/bu2.jpg" />
+    <img id="bu3" src="assets/bu3.jpg" />
+    <img id="buildingTexture" src="assets/lilBuildingTexture.jpg" />
+    <img id="skyTexture" src="assets/skyAframe.jpg" />
+    <img id="tallBuildingTexture" src="assets/tallBuildingAframe.jpg" />
+    <img id="tallBuildingTexture2" src="assets/tallBuildingAframe2.jpg" />
+    <img id="cylinderBuildingTexture" src="assets/cylinderBuilding.jpg" />
+    <img id="tallBuildingTexture3" src="assets/tallBuildingAframe3.jpg" />
+    <img id="tallBuildingTexture4" src="assets/tallBuildingAframe4.jpg" />
+    <a-asset-item id="flower-obj" src="models/flower.obj"></a-asset-item>
+    <a-asset-item id="flower-mtl" src="models/flower.mtl"></a-asset-item>
+    <a-asset-item id="trash1-obj" src="models/trash1.obj"></a-asset-item>
+    <a-asset-item id="trash1-mtl" src="models/trash1.mtl"></a-asset-item>
+    <a-asset-item id="trash2-obj" src="models/trash2.obj"></a-asset-item>
+    <a-asset-item id="trash2-mtl" src="models/trash2.mtl"></a-asset-item>
+    <a-asset-item id="trash3-obj" src="models/trash3.obj"></a-asset-item>
+    <a-asset-item id="trash3-mtl" src="models/trash3.mtl"></a-asset-item>
+    <a-asset-item id="trash4-obj" src="models/trash4.obj"></a-asset-item>
+    <a-asset-item id="trash4-mtl" src="models/trash4.mtl"></a-asset-item>
+    <a-asset-item id="trash5-obj" src="models/trash5.obj"></a-asset-item>
+    <a-asset-item id="trash5-mtl" src="models/trash5.mtl"></a-asset-item>
+    <a-asset-item id="trash6-obj" src="models/trash6.obj"></a-asset-item>
+    <a-asset-item id="trash6-mtl" src="models/trash6.mtl"></a-asset-item>
+    <a-asset-item id="trash7-obj" src="models/trash7.obj"></a-asset-item>
+    <a-asset-item id="trash7-mtl" src="models/trash7.mtl"></a-asset-item>
+    <a-asset-item id="trash8-obj" src="models/trash8.obj"></a-asset-item>
+    <a-asset-item id="trash8-mtl" src="models/trash8.mtl"></a-asset-item>
+    <a-asset-item id="trash9-obj" src="models/trash9.obj"></a-asset-item>
+    <a-asset-item id="trash9-mtl" src="models/trash9.mtl"></a-asset-item>
+    <a-asset-item id="trash10-obj" src="models/trash10.obj"></a-asset-item>
+    <a-asset-item id="trash10-mtl" src="models/trash10.mtl"></a-asset-item>
+    <a-asset-item id="trash11-obj" src="models/trash11.obj"></a-asset-item>
+    <a-asset-item id="trash11-mtl" src="models/trash11.mtl"></a-asset-item>
+    <a-asset-item id="trash12-obj" src="models/trash12.obj"></a-asset-item>
+    <a-asset-item id="trash12-mtl" src="models/trash12.mtl"></a-asset-item>
+    <a-asset-item id="trash13-obj" src="models/trash13.obj"></a-asset-item>
+    <a-asset-item id="trash13-mtl" src="models/trash13.mtl"></a-asset-item>
+    <a-asset-item id="trash14-obj" src="models/trash14.obj"></a-asset-item>
+    <a-asset-item id="trash14-mtl" src="models/trash14.mtl"></a-asset-item>
+    <a-asset-item id="trash15-obj" src="models/trash15.obj"></a-asset-item>
+    <a-asset-item id="trash15-mtl" src="models/trash15.mtl"></a-asset-item>
+    <a-asset-item id="trash16-obj" src="models/trash16.obj"></a-asset-item>
+    <a-asset-item id="trash16-mtl" src="models/trash16.mtl"></a-asset-item>
+    <a-asset-item id="tree1-obj" src="models/tree1.obj"></a-asset-item>
+    <a-asset-item id="tree1-mtl" src="models/tree1.mtl"></a-asset-item>
+    <a-asset-item id="tree2-obj" src="models/tree2.obj"></a-asset-item>
+    <a-asset-item id="tree2-mtl" src="models/tree2.mtl"></a-asset-item>
+    <a-asset-item id="tree3-obj" src="models/tree3.obj"></a-asset-item>
+    <a-asset-item id="tree3-mtl" src="models/tree3.mtl"></a-asset-item>
+    <a-asset-item id="tree4-obj" src="models/tree4.obj"></a-asset-item>
+    <a-asset-item id="tree4-mtl" src="models/tree4.mtl"></a-asset-item>
+
+
+
+</a-assets>
+
+<script>
+  AFRAME.registerComponent("change-color-on-hover", {
+    schema: {
+      color: { default: "black" }
+    },
+
+    init: function() {
+      var data = this.data;
+      var backgroundDing = document.createElement("AUDIO");
+      backgroundDing.src = "walk.mp3";
+      backgroundDing.load();
+      var el = this.el; // <a-box>
+      var defaultColor = el.getAttribute("material").color;
+
+      el.addEventListener("mouseenter", function() {
+        el.setAttribute("color", data.color);
+        backgroundDing.play();
+      });
+
+      el.addEventListener("mouseleave", function() {
+        el.setAttribute("color", defaultColor);
+      });
+    }
+  });
+</script>
+
+<a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount:10000"></a-entity>
+
+
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="10 10 -10"
+  animation="property: position; from: 10 10 4; to: 20 6 8; dir: alternate; dur: 10000; loop: true">
+</a-sphere>
+
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="20 30 -6"
+  animation="property: position; from: 10 15 9; to: 20 8 6; dir: alternate; dur: 10000; loop: true">
+</a-sphere>
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="30 35 -4"
+  animation="property: position; from: 20 16 4; to: 10 10 9; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="30 40 -2"
+  animation="property: position; from: 30 40 2; to: 10 7 6; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="50 30 -8"
+  animation="property: position; from: -30 10 6; to: -10 8 8; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="60 30 -6"
+  animation="property: position; from: -10 15 9; to: -40 8 6; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="20 30 -4"
+  animation="property: position; from: -30 10 8; to: -10 8 4; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="40 20 -15"
+  animation="property: position; from: -50 9 4; to: -30 7 2; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+
+<a-sphere
+  color="#FDFFC5"
+  radius="0.1"
+  position="40 20 -15"
+  animation="property: position; from: -50 9 40; to: -30 7 2; dir: alternate; dur: 10000; loop: true"
+></a-sphere>
+
+
+
+  <a-box
+  position="-16.725 2.364 7.655"
+  sound="src: #bbb; autoplay: true; loop: true"
+  material="src: #buildtex3"
+  width="3"
+  height="3"
+  depth="3">
+</a-box>
+
+
+
+
+
+<a-box
+  id="building1"
+  src="#buildingTexture"
+  position="13.232 1 1.512"
+  depth="3"
+  height="30"
+  width="5"
+  rotation="0 20 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="building2"
+  src="#buildingTexture"
+  position="17.563 4.985 -28.589"
+  depth="3"
+  height="40"
+  width="5"
+  rotation="0 12 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="building3"
+  src="#buildingTexture"
+  position="5.750 1.000 -3.000"
+  depth="3"
+  height="20"
+  width="3"
+  rotation="0 20 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-box
+    color="black"
+    depth="1"
+    height="0.5"
+    width="0.5"
+    position="0 1.5 0"
+  ></a-box>
+</a-box>
+<a-box
+  id="building4"
+  src="#buildingTexture"
+  position="7.018 5.645 -22.344"
+  depth="5"
+  height="50"
+  width="8"
+  rotation="0 20 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="building5"
+  src="#buildingTexture"
+  position="-6.135 -10.557 -3.710"
+  depth="3"
+  height="55"
+  width="4.000"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="building6"
+  src="#buildingTexture"
+  position="-1.788 0 -15.83"
+  depth="3"
+  height="44"
+  width="5"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="building7"
+  src="#buildingTexture"
+  position="-7.695 0 -17.561"
+  depth="3.000"
+  height="66"
+  width="4"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="building8"
+  src="#buildingTexture"
+  position="-12.895 1.040 -8.296"
+  depth="2.990"
+  height="40.000"
+  width="4.000"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+
+<!-- this builing is the Suntrust Plaza building in downtown atl-->
+<a-box
+  id="pointyBuilding"
+  src="#buildingTexture"
+  scale="1 0.648 1"
+  position="8 3.807 -15"
+  depth="2"
+  height="12"
+  width="2"
+  rotation="0 20 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-octahedron
+    src="#buildingTexture"
+    scale="1.104 1.461 1.099"
+    color="grey"
+    radius="1.3"
+    position="0 6.011 0"
+    rotation="0 45 0"
+    change-color-on-hover="color: white"
+  ></a-octahedron>
+</a-box>
+
+<a-box
+  id="tallBuiling1"
+  src="#buildingTexture"
+  scale="1 0.817 1"
+  position="5.675 3.375 -23"
+  depth="2"
+  height="10"
+  width="2"
+  rotation="0 20 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+></a-box>
+<a-box
+  id="tallBuiling2"
+  src="#tallBuildingTexture"
+  scale="5 5 5"
+  position="0.901 14.284 -35.958"
+  depth="1"
+  height="10"
+  width="1"
+  rotation="0 20 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-box
+    color="black"
+    height="1"
+    width=".3"
+    depth="1"
+    position="0 5 0"
+    change-color-on-hover="color: white"
+  ></a-box>
+</a-box>
+<a-box
+  id="tallBuiling3"
+  src="#tallBuildingTexture"
+  scale="7 8 4"
+  position="21.253 0.228 5.134"
+  depth="1"
+  height="8"
+  width="1"
+  rotation="0 0 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-box
+    color="black"
+    height="1"
+    width=".5"
+    depth="1"
+    position="0 4 0"
+    change-color-on-hover="color: white"
+  ></a-box>
+</a-box>
+<a-box
+  id="tallBuiling4"
+  src="#tallBuildingTexture"
+  scale="3 4 3"
+  position="-19.459 1.762 13.824"
+  depth="1"
+  height="10"
+  width="1"
+  rotation="0 0 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-box
+    color="black"
+    height="1"
+    width=".5"
+    depth="1"
+    position="0 5 0"
+    change-color-on-hover="color: white"
+  ></a-box>
+</a-box>
+<a-box
+  id="tallBuiling5"
+  src="#tallBuildingTexture"
+  scale="4 5 8"
+  position="-23.655 18.786 -10.158"
+  depth="1"
+  height="10"
+  width="1"
+  rotation="0 0 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-box
+    color="yellow"
+    height="1"
+    width=".5"
+    depth="1"
+    position="0 5 0"
+    change-color-on-hover="color: white"
+  ></a-box>
+</a-box>
+<a-box
+  id="tallBuiling6"
+  src="#tallBuildingTexture"
+  scale="3 4 2"
+  position="-22.786 4.668 33.999"
+  depth="1"
+  height="10"
+  width="1"
+  rotation="0 0 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: white"
+>
+  <a-box
+    color="black"
+    height="1"
+    width=".5"
+    depth="1"
+    position="0 5 0"
+    change-color-on-hover="color: white"
+  ></a-box>
+</a-box>
+<a-box
+  id="tallBuiling7"
+  src="#tallBuildingTexture3"
+  position="26.935 3.148 16.824"
+  scale="3 2 3"
+  depth="1"
+  height="19"
+  width="1"
+  rotation="0 -23 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: yellow"
+>
+  <a-box
+    color="black"
+    depth=".7"
+    width=".7"
+    height="1"
+    position="0 9.5 0"
+    change-color-on-hover="color: yellow"
+  ></a-box>
+  <a-box
+    color="black"
+    depth=".5"
+    width=".5"
+    height="1"
+    position="0 10 0"
+    change-color-on-hover="color: yellow"
+  ></a-box>
+</a-box>
+<a-box
+  id="tallBuiling8"
+  src="#tallBuildingTexture4"
+  position="-35.683 16.233 23.415"
+  scale="2 2 4"
+  depth="1"
+  height="19"
+  width="1"
+  rotation="0 29 0"
+  color="grey"
+  shadow
+  change-color-on-hover="color: orange"
+></a-box>
+
+<!-- this is the Westin in downtown atl -->
+<a-cylinder
+  id="cylinderBuilding"
+  src="#cylinderBuildingTexture"
+  color="grey"
+  scale="2 3 2"
+  position="-14.528 1.963 -3.340"
+  height="7"
+  radius=".5"
+  change-color-on-hover="color: orange"
+>
+
+  <a-cylinder
+    src="#cylinderBuildingTexture"
+    color="black"
+    radius=".08"
+    height="7"
+    position=".5 0 .3"
+    change-color-on-hover="color: orange"
+  ></a-cylinder>
+
+  <a-cylinder
+    color="black"
+    radius=".008"
+    height=".8"
+    position="17.973 2.880 23.920"
+    change-color-on-hover="color: orange"
+    scale="2 2 2"
+  ></a-cylinder>
+</a-cylinder>
+
+  <a-cylinder
+  position="15.375 2.523 18.757"
+  sound="src: #spooky; autoplay: true; loop: true"
+  material="src: #cylinderBuildingTexture"
+  radius="1.5"
+  height="2.5"
+  scale="1 5 1">
+</a-cylinder>
+
+
+
+<a-entity light="type: ambient; color: #BBB"></a-entity>
+<a-entity
+  light="type: directional; color: #FFF; intensity: 0.6"
+  position="-0.5 1 1">
+</a-entity>
+
+<a-box
+  height="100"
+  depth="0"
+  width="3"
+  position="0 -0.460 0"
+  rotation="-90 0 0"
+  color="darkgrey"
+></a-box>
+
+<a-box
+  height="100"
+  depth="0"
+  width="1"
+  position="1.453 -0.460 6.335"
+  rotation="-90 150.79 0"
+  color="darkgrey"
+></a-box>
+
+<a-entity
+obj-model="obj: #flower-obj;"
+position="-90.684 -129.002 -85.349"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="19.137 152.464 154.011"
+scale="400 400 400"
+material="src: #flower1">
+</a-entity>
+
+<a-entity
+obj-model="obj: #flower-obj;"
+position="81.059 -47.791 -46.110"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="-19.481 -143.010 91.100"
+scale="400 400 400"
+material="src: #flower1">
+</a-entity>
+
+
+
+<a-entity
+obj-model="obj: #trash1-obj;"
+position="-28.142 -51.945 -88.740"
+sound="src: #leaf; autoplay: true; loop: true"
+rotation="0 0 0"
+scale="50 70 70"
+material="src: #trash1">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash2-obj;"
+position="-28.943 -1.365 -28.093"
+sound="src: #leaf2; autoplay: true; loop: true"
+rotation="0 0 0"
+scale="30 30 30"
+material="src: #trash2">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash3-obj;"
+position="47.807 -0.505 -5.901"
+sound="src: #bird1; autoplay: true; loop: true"
+rotation="0.802 -41.654 0.917"
+scale="10 10 10"
+material="src: #trash3">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash4-obj;"
+position="20.568 -1.829 3.468"
+sound="src: #bird1; autoplay: true; loop: true"
+rotation="0.802 -13.866 0.917"
+scale="10 10 10"
+material="src: #trash4">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash5-obj;"
+position="47.807 -0.864 -4.187"
+sound="src: #bird2; autoplay: true; loop: true"
+rotation="0.802 -41.654 0.917"
+scale="10 10 10"
+material="src: #trash5">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash6-obj;"
+position="-46.224 -1.807 18.120"
+sound="src: #train; autoplay: true; loop: true"
+rotation="0.802 -16.730 0.917"
+scale="10 10 10"
+material="src: #trash6">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash7-obj;"
+position="-43.495 -1.790 17.305"
+sound="src: #train; autoplay: true; loop: true"
+rotation="0.802 -16.730 0.917"
+scale="10 10 10"
+material="src: #trash7">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash8-obj;"
+position="-27.587 -1.284 62.085"
+sound="src: #water; autoplay: true; loop: true"
+rotation="-0.573 32.487 4.469"
+scale="10 10 10"
+material="src: #trash8">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash9-obj;"
+position="-25.438 -0.580 5.379"
+sound="src: #water; autoplay: true; loop: true"
+rotation="-0.573 20.684 4.469"
+scale="10 10 10"
+material="src: #trash9">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash10-obj;"
+position="60.079 -1.080 59.899"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="3.552 -90.585 -1.375"
+scale="10 10 10"
+material="src: #trash10">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash11-obj;"
+position="78.179 -2.177 62.520"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 -115.909 -0.745"
+scale="15 15 15"
+material="src: #trash11">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash12-obj;"
+position="-78.578 8.356 88.099"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 95.455 -0.745"
+scale="40 40 40"
+material="src: #trash12">
+</a-entity>
+
+
+
+<a-entity
+obj-model="obj: #trash13-obj;"
+position="30.325 -0.891 -76.926"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 -100.153 -0.745"
+scale="50 50 50"
+material="src: #trash13">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash14-obj;"
+position="-36.603 -3.496 -1.506"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 -100.153 -0.745"
+scale="30 30 30"
+material="src: #trash14">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash15-obj;"
+position="38.347 -3.053 -1.506"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 -51.394 -0.745"
+scale="30 30 30"
+material="src: #trash15">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash16-obj;"
+position="-87.534 4.869 -47.676"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="22.002 -169.366 30.023"
+scale="30 50 30"
+material="src: #trash16">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash12-obj;"
+position="-23.260 8.356 136.357"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 115.852 -0.745"
+scale="40 40 40"
+material="src: #trash12">
+</a-entity>
+
+<a-entity
+obj-model="obj: #trash15-obj;"
+position="188.464 -3.053 -63.899"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 -112.701 -0.745"
+scale="30 30 30"
+material="src: #trash15">
+</a-entity>
+
+<a-entity
+obj-model="obj: #tree1-obj;"
+position="43.131 -14.658 -16.240"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 -112.701 -0.745"
+scale="30 30 30"
+material="src: #tree1">
+</a-entity>
+
+<a-entity
+obj-model="obj: #tree2-obj;"
+position="-31.872 -3.823 46.831"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 114.305 -0.745"
+scale="15 15 15"
+material="src: #tree2">
+</a-entity>
+
+
+<a-entity
+obj-model="obj: #tree3-obj;"
+position="16.605 -20.915 46.831"
+sound="src: #bbb; autoplay: true; loop: true"
+rotation="2.177 114.305 -0.745"
+scale="15 15 15"
+material="src: #tree3">
+</a-entity>
+
+
+</a-entity>
+
+
+
+  <a-sky color="#CECAC6"></a-sky>
+
+
+  <a-entity position="0 0 0">
+    <a-camera position="0 1 9"><a-cursor></a-cursor></a-camera>
+  </a-entity>
+
+</a-scene>
+</body>
+</html>
